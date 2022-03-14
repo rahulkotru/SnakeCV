@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-import cvzone
+from cvzone.HandTrackingModule import HandDetector
 
 cap=cv2.VideoCapture(0)
 
