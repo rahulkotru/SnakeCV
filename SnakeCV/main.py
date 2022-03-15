@@ -11,8 +11,13 @@ class SnakeGame:
         self.allowedLength=[]
         self.previousHead=[]
 
-    
-           
+    def update(self,imgMain,currentHead):
+        px,py=self.previousHead
+        cx,cy=currentHead
+        
+
+
+
 cap=cv2.VideoCapture(0)
 
 cap.set(3,1920)
