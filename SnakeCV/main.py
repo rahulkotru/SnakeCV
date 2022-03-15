@@ -2,6 +2,10 @@ import numpy as np
 import cv2
 from cvzone.HandTrackingModule import HandDetector
 
+
+class SnakeGame:
+    def __init__(self):
+
 cap=cv2.VideoCapture(0)
 
 cap.set(3,1920)
