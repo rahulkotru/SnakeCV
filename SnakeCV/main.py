@@ -1,15 +1,16 @@
 import numpy as np
 import cv2
 from cvzone.HandTrackingModule import HandDetector
+import math
 
 
 class SnakeGame:
     def __init__(self):
         self.points=[]
         self.lengths=[]
-        self.currentLength=[]
-        self.allowedLength=[]
-        self.previousHead=[]
+        self.currentLength=0
+        self.allowedLength=150
+        self.previousHead=0,0
 
     def update(self,imgMain,currentHead):
         px,py=self.previousHead
@@ -24,7 +25,7 @@ class SnakeGame:
         for i,points in enumerate(self.points):
             if i!=0:
                 cv2.line(imgMain,self.points[i-1],self.points[i],(0,0,255),20)
-        cv2.circle(img,self.points[-1],20,(200,0,200),cv2.FILLED)
+        cv2.circle(imgMain,self.points[-1],20,(200,0,200),cv2.FILLED)
         return imgMain
 
 
@@ -38,13 +39,13 @@ game=SnakeGame()
 while(True):
     success,img=cap.read()
     img=cv2.flip(img,1)
-    hands,img=detector.findHands(img)
+    hands,img=detector.findHands(img,flipType=False)
 
     if hands:
         lmList=hands[0]['lmList']
         pointIndex=lmList[8][0:2]
         img=game.update(img,pointIndex)
-        cv2.circle(img,pointIndex,20,(200,0,200),cv2.FILLED)
+        #cv2.circle(img,pointIndex,20,(200,0,200),cv2.FILLED)
 
     cv2.imshow('Image',img)
     cv2.waitKey(1)
