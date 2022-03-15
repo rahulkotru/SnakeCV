@@ -5,7 +5,14 @@ from cvzone.HandTrackingModule import HandDetector
 
 class SnakeGame:
     def __init__(self):
+        self.points=[]
+        self.lengths=[]
+        self.currentLength=[]
+        self.allowedLength=[]
+        self.previousHead=[]
 
+    
+           
 cap=cv2.VideoCapture(0)
 
 cap.set(3,1920)
