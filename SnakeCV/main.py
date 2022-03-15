@@ -9,7 +9,7 @@ class SnakeGame:
         self.points=[]
         self.lengths=[]
         self.currentLength=0
-        self.allowedLength=150
+        self.allowedLength=500
         self.previousHead=0,0
 
     def update(self,imgMain,currentHead):
@@ -29,7 +29,7 @@ class SnakeGame:
                 if self.currentLength<self.allowedLength:
                     break
         if self.points:
-            
+
             for i,points in enumerate(self.points):
                 if i!=0:
                     cv2.line(imgMain,self.points[i-1],self.points[i],(0,0,255),20)
