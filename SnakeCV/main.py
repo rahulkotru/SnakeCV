@@ -5,7 +5,7 @@ import math
 
 
 class SnakeGame:
-    def __init__(self):
+    def __init__(self,pathFood):
         self.points=[]
         self.lengths=[]
         self.currentLength=0
