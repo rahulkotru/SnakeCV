@@ -14,6 +14,11 @@ class SnakeGame:
     def update(self,imgMain,currentHead):
         px,py=self.previousHead
         cx,cy=currentHead
+        self.points.append([cx,cy])
+        distance=math.hypot(cx-px,cy-py)
+        self.lengths.append(distance)
+        self.currentLength+=distance
+        self.previousHead=cx,cy
         
 
 
