@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+import cvzone
 from cvzone.HandTrackingModule import HandDetector
 import math
 import random
@@ -39,11 +40,13 @@ class SnakeGame:
                 if self.currentLength<self.allowedLength:
                     break
         if self.points:
-
             for i,points in enumerate(self.points):
                 if i!=0:
                     cv2.line(imgMain,self.points[i-1],self.points[i],(0,0,255),20)
             cv2.circle(imgMain,self.points[-1],20,(200,0,200),cv2.FILLED)
+
+        rx,ry=self.foodPoint
+        cvzone.overlay(imgMain,self.imgFood,(rx-self.wFood//2,ry-self.hFood//2))
         return imgMain
 
 
