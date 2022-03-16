@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 from cvzone.HandTrackingModule import HandDetector
 import math
+import random
 
 
 class SnakeGame:
@@ -14,6 +15,11 @@ class SnakeGame:
 
         self.imgFood=cv2.imread(pathFood,cv2.IMREAD_UNCHANGED)
         self.hFood, self.wFood,_=self.imgFood.shape
+        self.foodPoint=0, 0
+        self.randomFoodLocation()
+
+    def randomFoodLocation(self):
+        self.foodPoint=random.randomint(100,1000),random.randomint(100,600)
 
 
     def update(self,imgMain,currentHead):
