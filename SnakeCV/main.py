@@ -44,7 +44,7 @@ class SnakeGame:
 
         rx,ry=self.foodPoint
         if rx - self.wFood//2<cx <rx+self.wFood//2 and ry-self.hFood//2 <cy<ry+self.hFood//2:
-            print("Eating"+ self.score)
+            print("Eating", self.score)
             self.randomFoodLocation()
             self.allowedLength+=50
             self.score+=1
