@@ -20,7 +20,7 @@ class SnakeGame:
         self.randomFoodLocation()
 
     def randomFoodLocation(self):
-        self.foodPoint=random.randomint(100,1000),random.randomint(100,600)
+        self.foodPoint=random.randint(100,1000),random.randint(100,600)
 
 
     def update(self,imgMain,currentHead):
@@ -44,7 +44,7 @@ class SnakeGame:
         rx,ry=self.foodPoint
         if rx - self.wFood//2<cx <rx+self.wFood//2 and ry-self.hFood//2 <cy<ry+self.hFood//2:
             print("Eating")
-                 
+
         if self.points:
             for i,points in enumerate(self.points):
                 if i!=0:
