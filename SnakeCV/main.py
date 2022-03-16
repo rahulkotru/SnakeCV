@@ -52,7 +52,7 @@ class SnakeGame:
             cv2.circle(imgMain,self.points[-1],20,(200,0,200),cv2.FILLED)
 
         
-        imgMain=cvzone.overlay(imgMain,self.imgFood,(rx-self.wFood//2,ry-self.hFood//2))
+        imgMain=cvzone.overlayPNG(imgMain,self.imgFood,(rx-self.wFood//2,ry-self.hFood//2))
         return imgMain
 
 
