@@ -39,14 +39,20 @@ class SnakeGame:
                 self.points.pop(i)
                 if self.currentLength<self.allowedLength:
                     break
+
+
+        rx,ry=self.foodPoint
+        if rx - self.wFood//2<cx <rx+self.wFood//2 and ry-self.hFood//2 <cy<ry+self.hFood//2:
+            print("Eating")
+                 
         if self.points:
             for i,points in enumerate(self.points):
                 if i!=0:
                     cv2.line(imgMain,self.points[i-1],self.points[i],(0,0,255),20)
             cv2.circle(imgMain,self.points[-1],20,(200,0,200),cv2.FILLED)
 
-        rx,ry=self.foodPoint
-        cvzone.overlay(imgMain,self.imgFood,(rx-self.wFood//2,ry-self.hFood//2))
+        
+        imgMain=cvzone.overlay(imgMain,self.imgFood,(rx-self.wFood//2,ry-self.hFood//2))
         return imgMain
 
 
@@ -56,7 +62,7 @@ cap=cv2.VideoCapture(0)
 cap.set(3,1920)
 cap.set(4,1080)
 detector=HandDetector(detectionCon=0.8,maxHands=2)
-game=SnakeGame()
+game=SnakeGame("pizza.png")
 while(True):
     success,img=cap.read()
     img=cv2.flip(img,1)
