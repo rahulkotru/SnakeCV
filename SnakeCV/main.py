@@ -12,6 +12,9 @@ class SnakeGame:
         self.allowedLength=500
         self.previousHead=0,0
 
+    
+
+
     def update(self,imgMain,currentHead):
         px,py=self.previousHead
         cx,cy=currentHead
