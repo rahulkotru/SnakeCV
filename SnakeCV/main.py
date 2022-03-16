@@ -76,7 +76,7 @@ while(True):
         lmList=hands[0]['lmList']
         pointIndex=lmList[8][0:2]
         img=game.update(img,pointIndex)
-        #cv2.circle(img,pointIndex,20,(200,0,200),cv2.FILLED)
+        
 
     cv2.imshow('Image',img)
     cv2.waitKey(1)
