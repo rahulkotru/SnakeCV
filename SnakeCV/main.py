@@ -12,7 +12,8 @@ class SnakeGame:
         self.allowedLength=500
         self.previousHead=0,0
 
-    
+        self.imgFood=cv2.imread(pathFood,cv2.IMREAD_UNCHANGED)
+        self.hFood, self.wFood,_=self.imgFood.shape
 
 
     def update(self,imgMain,currentHead):
