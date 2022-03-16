@@ -13,6 +13,7 @@ class SnakeGame:
         self.currentLength=0
         self.allowedLength=500
         self.previousHead=0,0
+        self.score=0
 
         self.imgFood=cv2.imread(pathFood,cv2.IMREAD_UNCHANGED)
         self.hFood, self.wFood,_=self.imgFood.shape
@@ -43,7 +44,10 @@ class SnakeGame:
 
         rx,ry=self.foodPoint
         if rx - self.wFood//2<cx <rx+self.wFood//2 and ry-self.hFood//2 <cy<ry+self.hFood//2:
-            print("Eating")
+            print("Eating"+ self.score)
+            self.randomFoodLocation()
+            self.allowedLength+=50
+            self.score+=1
 
         if self.points:
             for i,points in enumerate(self.points):
