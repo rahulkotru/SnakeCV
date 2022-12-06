@@ -80,4 +80,4 @@ while(True):
 
     cv2.imshow('Image',img)
     cv2.waitKey(1)
-    1234567
+    12345678
